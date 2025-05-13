@@ -202,8 +202,7 @@
 						script.type = "text/javascript";
 						script.textContent = atob(getWispcraftBundle());
 						doc.head.appendChild(script);
-						const serializer = new XMLSerializer();
-						const finalContent = serializer.serializeToString(doc);
+						const finalContent = doc.documentElement.outerHTML;
 						const blob = new Blob([finalContent], {
 							type: "text/html; charset=utf-8",
 						});
